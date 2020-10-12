@@ -8,7 +8,10 @@ import bodyParser from 'body-parser';
 import { V0MODELS } from './controllers/v0/model.index';
 
 (async () => {
+  //await means to make the line wait while it code sync with db
   await sequelize.addModels(V0MODELS);
+  //here we make everything in db is updated as in the code
+  //.. and it does that by applying our migration:
   await sequelize.sync();
 
   const app = express();
